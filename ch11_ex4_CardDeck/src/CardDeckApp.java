@@ -9,7 +9,7 @@ public class CardDeckApp {
         shuffleDeck(deck);
         displayCards(deck);
 
-        int count = 2;
+        int count = 5;
         System.out.println("HAND OF " + count + " CARDS");
         String[] hand = dealCards(deck, count);
         displayCards(hand);
@@ -50,6 +50,9 @@ public class CardDeckApp {
 
     private static String[] dealCards(String[] deck, int count) {
         String[] hand = new String[count];
+        for(int i = 0; i < count; i++) {
+            hand[i] = deck[i];
+        }
         return hand;
     }
 }
