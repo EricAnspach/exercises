@@ -12,9 +12,13 @@ public class CardDeckApp {
         displayCards(deck);
 
         int count = 5;
-        System.out.println("HAND OF " + count + " CARDS");
-        ArrayList<String> hand = dealCards(deck, count);
-        displayCards(hand);
+        for (int i = 0; i < 4; i++) {
+            System.out.println("HAND OF " + count + " CARDS");
+            ArrayList<String> hand = dealCards(deck, count);
+            displayCards(hand);
+        }
+
+        System.out.println("Cards left in deck: " + deck.size());
     }
 
     private static ArrayList<String> getDeck() {
@@ -51,7 +55,7 @@ public class CardDeckApp {
     private static ArrayList<String> dealCards(ArrayList<String> deck, int count) {
         ArrayList<String> hand = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-            hand.add(deck.get(i));
+            hand.add(deck.remove(i));
         }
         return hand;
     }
