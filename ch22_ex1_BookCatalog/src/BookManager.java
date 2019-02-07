@@ -9,39 +9,9 @@ public class BookManager {
         bookList = new BookCatalog().getCatalog();
     }
     
-    public List<Book> getBooksByTitle(String title) {
-        List<Book> books = new ArrayList<>();
-        for (Book b : bookList) {
-            if (b.getTitle().equals(title)) {
-                books.add(b);
-            }
-        }
-        return books;
-    }
-    
-    public List<Book> getBooksByCategory(String category) {
-        List<Book> books = new ArrayList<>();
-        for (Book b : bookList) {
-            if (b.getCategory().equals(category)) {
-                books.add(b);
-            }
-        }
-        return books;
-    }
-    
-    public List<Book> getBooksByFormat(String format) {
-        List<Book> books = new ArrayList<>();
-        for (Book b : bookList) {
-            if (b.getFormat().equals(format)) {
-                books.add(b);
-            }
-        }
-        return books;
-    }
-    
-    public List<Book> getBooks(List<Book> books, Predicate<Book> condition) {
+    public List<Book> getBooks(Predicate<Book> condition) {
     	List<Book> filteredBooks = new ArrayList<>();
-    	for (Book b : books) {
+    	for (Book b : bookList) {
     		if (condition.test(b)) {
 				filteredBooks.add(b);
 			}
